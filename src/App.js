@@ -10,12 +10,19 @@ function App() {
       .then((res) => res.json())
       .then((data) => setContries(data));
   }, []);
+  const handleAddButton = () => {
+    console.log("hi there");
+  };
   return (
     <div className="App">
       <h2>Countries : {countries.length}</h2>
       <ul>
         {countries.map((country) => (
-          <Country country ={country}></Country>
+          <Country
+          key={country.name}
+            handleAddButton={handleAddButton}
+            country={country}
+          ></Country>
         ))}
       </ul>
       <header className="App-header">
